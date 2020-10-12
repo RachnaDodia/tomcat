@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   - name: Unzip WAR file
-    unarchive: src=/warsource/sample.war dest=/opt/apache-tomcat-7.0.61/webapps/ROOT/ copy=no mode=0755 owner=admin group=admin
+    unarchive: src=/warsource/sample.war dest=/opt/apache-tomcat-7.0.61/webapps/ROOT/ copy=no mode=0755 owner=tomcat group=tomcat
     notify:
         - Restart tomcat7
   handlers:
