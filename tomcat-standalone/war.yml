@@ -1,0 +1,14 @@
+---
+- hosts: all
+  vars:
+  - warName: sample.war
+  - warRemotePath: /path/to/put/war
+
+  tasks:
+  - name: Unzip WAR file
+    unarchive: src=/warsource/sample.war dest=/opt/apache-tomcat-7.0.61/webapps/ROOT/ copy=no mode=0755 owner=tomcat7 group=tomcat7
+    notify:
+        - Restart tomcat7
+  handlers:
+    - name: Restart tomcat7
+      service: name=tomcat7 state=restarted
