@@ -2,4 +2,4 @@
 - hosts: all
   tasks:
   - name: Unzip WAR file
-    copy: src=/warsource/sample.war dest=/opt/apache-tomcat-7.0.61/webapps mode=0755 owner=tomcat group=tomcat
+    copy: src=/warsource/sample.war dest=/opt/apache-tomcat-7.0.61/webapps remote_src=true mode=0755 owner=tomcat group=tomcat
