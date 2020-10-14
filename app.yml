@@ -1,0 +1,10 @@
+---
+- name: Deploy dot net core application
+  host: all
+  tasks:
+   - name: create new project
+     command: dotnet new console -n MyConsoleApp -o myApp --force
+   - name: Write the code
+     command: cat /root/dn/myapp.cs > /root/myApp/Program.cs
+   - name: Run .net core app
+     command: dotnet run -p /root/myApp/MyConsoleApp.csproj
